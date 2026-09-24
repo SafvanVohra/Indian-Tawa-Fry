@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 
+    - primary meta tags
+  -->
+  <title>Our Menu - Dawat Restaurant | Kheda, Gujarat</title>
+  <meta name="title" content="Our Menu - Dawat Restaurant | Kheda, Gujarat">
+  <meta name="description" content="Explore the authentic menu of Dawat Restaurant in Kheda, Gujarat. Famous for Mughlai, BBQ, Sizzlers, Seafood & Chicken specialties. Call +91 83208 12121 for bookings.">
+
+  <!-- 
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Forum&display=swap" rel="stylesheet">
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <style>
+    /* Dedicated Menu Page Custom Styles */
+    .menu-page-hero {
+      padding-block-start: calc(var(--section-space) + 120px);
+      padding-block-end: var(--section-space);
+      background-position: center;
+      background-size: cover;
+      position: relative;
+    }
+
+    .menu-page-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: hsla(0, 0%, 0%, 0.82);
+    }
+
+    .menu-page-hero .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .menu-section-header {
+      margin-block: 60px 30px;
+      padding-block-end: 15px;
+      border-block-end: 1px solid var(--white-alpha-20);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .menu-section-title {
+      font-size: var(--fontSize-title-1);
+      color: var(--gold-crayola);
+      font-family: var(--fontFamily-forum);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .menu-section-tag {
+      font-size: var(--fontSize-label-2);
+      color: var(--quick-silver);
+      font-family: var(--fontFamily-dm_sans);
+      letter-spacing: var(--letterSpacing-2);
+      text-transform: uppercase;
+    }
+
+    .menu-dish-card {
+      background-color: var(--eerie-black-2);
+      border: 1px solid var(--white-alpha-10);
+      border-radius: var(--radius-24);
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      transition: var(--transition-2);
+      height: 100%;
+    }
+
+    .menu-dish-card:hover {
+      border-color: var(--gold-crayola);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .menu-dish-card .dish-img-box {
+      width: 110px;
+      height: 110px;
+      flex-shrink: 0;
+      border-radius: var(--radius-24);
+      overflow: hidden;
+      border: 2px solid var(--white-alpha-10);
+      position: relative;
+    }
+
+    .menu-dish-card:hover .dish-img-box {
+      border-color: var(--gold-crayola);
+    }
+
+    .menu-dish-card .dish-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition-2);
+    }
+
+    .menu-dish-card:hover .dish-img-box img {
+      transform: scale(1.08);
+    }
+
+    .menu-dish-info {
+      flex-grow: 1;
+    }
+
+    .menu-dish-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+      margin-block-end: 8px;
+    }
+
+    .menu-dish-title {
+      color: var(--white);
+      font-family: var(--fontFamily-forum);
+      font-size: var(--fontSize-title-3);
+      transition: var(--transition-1);
+    }
+
+    .menu-dish-card:hover .menu-dish-title {
+      color: var(--gold-crayola);
+    }
+
+    .menu-dish-price {
+      color: var(--gold-crayola);
+      font-family: var(--fontFamily-forum);
+      font-size: var(--fontSize-title-2);
+      font-weight: var(--weight-bold);
+      white-space: nowrap;
+    }
+
+    .menu-dish-badge {
+      display: inline-block;
+      background-color: rgba(228, 197, 144, 0.15);
+      color: var(--gold-crayola);
+      border: 1px solid rgba(228, 197, 144, 0.3);
+      padding: 2px 10px;
+      font-size: 1.1rem;
+      border-radius: 50px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-block-end: 8px;
+    }
+
+    .menu-dish-desc {
+      color: var(--quick-silver);
+      font-size: var(--fontSize-body-4);
+      line-height: var(--lineHeight-4);
+      margin-block-end: 12px;
+    }
+
+    .menu-dish-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--gold-crayola);
+      font-size: var(--fontSize-label-2);
+      font-weight: var(--weight-bold);
+      letter-spacing: 1px;
+      transition: var(--transition-1);
+    }
+
+    .menu-dish-action:hover {
+      text-decoration: underline;
+      gap: 10px;
+    }
+
+    /* Category Navigation Sticky Bar */
+    .menu-nav-sticky {
+      position: sticky;
+      top: 90px;
+      z-index: 10;
+      background-color: var(--smoky-black-1);
+      padding-block: 18px;
+      border-block-end: 1px solid var(--white-alpha-10);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .menu-nav-scroll {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      padding-inline: 10px;
+      scrollbar-width: none;
+    }
+
+    .menu-nav-scroll::-webkit-scrollbar {
+      display: none;
+    }
+
+    .menu-nav-link {
+      white-space: nowrap;
+      padding: 10px 22px;
+      border-radius: var(--radius-24);
+      background-color: var(--eerie-black-1);
+      color: var(--quick-silver);
+      border: 1px solid var(--white-alpha-10);
+      font-family: var(--fontFamily-forum);
+      font-size: var(--fontSize-body-3);
+      letter-spacing: var(--letterSpacing-1);
+      transition: var(--transition-1);
+    }
+
+    .menu-nav-link:hover,
+    .menu-nav-link.active {
+      background-color: var(--gold-crayola);
+      color: var(--smoky-black-1);
+      border-color: var(--gold-crayola);
+      font-weight: var(--weight-bold);
+    }
+
+    /* Direct Booking CTA Bar */
+    .order-cta-box {
+      background: linear-gradient(135deg, var(--eerie-black-1) 0%, var(--smoky-black-2) 100%);
+      border: 1px solid var(--gold-crayola);
+      border-radius: var(--radius-24);
+      padding: 50px 30px;
+      margin-block: 70px 30px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .order-cta-box::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(228, 197, 144, 0.1) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    @media (max-width: 768px) {
+      .menu-dish-card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .menu-dish-card .dish-img-box {
+        width: 100%;
+        height: 180px;
+      }
+      .menu-section-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+
+</head>
+
+<body id="top">
+
+  <!-- 
+    - #PRELOADER
+  -->
+
+  <div class="preload" data-preaload>
+    <div class="circle"></div>
+    <p class="text">Dawat</p>
+  </div>
+
+
+
+
+
+  <!-- 
+    - #TOP BAR
+  -->
+
+  <div class="topbar">
+    <div class="container">
+
+      <address class="topbar-item">
+        <div class="icon">
+          <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
+        </div>
+
+        <span class="span">
+          NH-8, Kajipura, Opp. Sumar Logistics, Kheda, Gujarat — 387120
+        </span>
+      </address>
+
+      <div class="separator"></div>
+
+      <div class="topbar-item item-2">
+        <div class="icon">
+          <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
+        </div>
+
+        <span class="span">Daily : 1:00 PM to 1:00 AM</span>
+      </div>
+
+      <a href="tel:+918320812121" class="topbar-item link">
+        <div class="icon">
+          <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
+        </div>
+
+        <span class="span">+91 83208 12121</span>
+      </a>
+
+      <div class="separator"></div>
+
+      <a href="tel:+917984905342" class="topbar-item link">
+        <div class="icon">
+          <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
+        </div>
+
+        <span class="span">+91 79849 05342</span>
+      </a>
+
+    </div>
+  </div>
+
+
+
+
+
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+    <div class="container">
+
+      <a href="index.html" class="logo">
+        <img src="./assets/images/logo.svg" width="160" height="50" alt="Dawat Restaurant - Home">
+      </a>
+
+      <nav class="navbar" data-navbar>
+
+        <button class="close-btn" aria-label="close menu" data-nav-toggler>
+          <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+        </button>
+
+        <a href="index.html" class="logo">
+          <img src="./assets/images/logo.svg" width="160" height="50" alt="Dawat Restaurant - Home">
+        </a>
+
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <a href="index.html" class="navbar-link hover-underline">
+              <div class="separator"></div>
+
+              <span class="span">Home</span>
+            </a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="menu.html" class="navbar-link hover-underline active">
+              <div class="separator"></div>
+
+              <span class="span">Menus</span>
+            </a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="index.html#about" class="navbar-link hover-underline">
+              <div class="separator"></div>
+
+              <span class="span">About Us</span>
+            </a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="index.html#reservation" class="navbar-link hover-underline">
+              <div class="separator"></div>
+
+              <span class="span">Book Table</span>
+            </a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="#contact" class="navbar-link hover-underline">
+              <div class="separator"></div>
+
+              <span class="span">Contact</span>
+            </a>
+          </li>
+
+        </ul>
+
+        <div class="text-center">
+          <p class="headline-1 navbar-title">Visit Us</p>
+
+          <address class="body-4">
+            NH-8, Kajipura, Opp. Sumar Logistics,<br>
+            Nearby Coca-Cola, Kheda, Gujarat — 387120
+          </address>
+
+          <p class="body-4 navbar-text">Open: 1:00 PM - 1:00 AM Daily</p>
+
+          <a href="tel:+917984905342" class="body-4 sidebar-link">+91 79849 05342 / +91 95370 05566</a>
+
+          <div class="separator"></div>
+
+          <p class="contact-label">Booking Request</p>
+
+          <a href="tel:+918320812121" class="body-1 contact-number hover-underline">
+            +91 83208 12121
+          </a>
+        </div>
+
+      </nav>
+
+      <a href="tel:+918320812121" class="btn btn-secondary">
+        <span class="text text-1">Book Table</span>
+
+        <span class="text text-2" aria-hidden="true">Book Table</span>
+      </a>
+
+      <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+        <span class="line line-1"></span>
+        <span class="line line-2"></span>
+        <span class="line line-3"></span>
+      </button>
+
+      <div class="overlay" data-nav-toggler data-overlay></div>
+
+    </div>
+  </header>
+
+
+
+
+
+  <main>
+    <article>
+
+      <!-- 
+        - #HERO BANNER
+      -->
+
+      <section class="menu-page-hero text-center" style="background-image: url('./assets/images/hero-slider-1.jpg')">
+        <div class="container">
+
+          <p class="label-2 section-subtitle">Taste That Touches Your Heart</p>
+
+          <h1 class="display-1 hero-title">Our Complete Menu</h1>
+
+          <p class="body-2 hero-text" style="margin-inline: auto; max-width: 650px;">
+            Authentic Non-Veg, Mughlai curries, sizzling tandoori starters, fresh coastal seafood &amp; sizzlers prepared fresh daily at Dawat Restaurant, Kheda.
+          </p>
+
+          <div style="margin-block-start: 25px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+            <a href="tel:+918320812121" class="btn btn-primary">
+              <span class="text text-1">Call to Order: +91 83208 12121</span>
+              <span class="text text-2" aria-hidden="true">Call Now</span>
+            </a>
+            <a href="tel:+918320812121" class="btn btn-secondary">
+              <span class="text text-1">Book Table</span>
+              <span class="text text-2" aria-hidden="true">Book Table</span>
+            </a>
+          </div>
+
+        </div>
+      </section>
+
+
+
+
+      <!-- 
+        - #STICKY CATEGORY BAR
+      -->
+
+      <nav class="menu-nav-sticky">
+        <div class="container">
+          <div class="menu-nav-scroll">
+            <a href="#soups" class="menu-nav-link active">Hot Soups</a>
+            <a href="#starters" class="menu-nav-link">Starters &amp; Main Course</a>
+            <a href="#seafood" class="menu-nav-link">Seafood Specials</a>
+            <a href="#veg" class="menu-nav-link">Veg. Dawat Special &amp; Sizzlers</a>
+          </div>
+        </div>
+      </nav>
+
+
+
+
+      <!-- 
+        - #MENU CONTAINER
+      -->
+
+      <section class="section menu-details">
+        <div class="container">
+
+          <!-- ================= CATEGORY 1: SOUPS ================= -->
+          <div id="soups" class="menu-category-block">
+            <div class="menu-section-header">
+              <h2 class="menu-section-title">
+                <ion-icon name="flame-outline" aria-hidden="true"></ion-icon>
+                Hot &amp; Aromatic Soups
+              </h2>
+              <span class="menu-section-tag">Freshly Prepared • 6 Selections</span>
+            </div>
+
+            <ul class="grid-list">
+
+              <!-- Dawat Sp. Soup -->
+              <li>
+                <div class="menu-dish-card">
+                  <div class="dish-img-box">
+                    <img src="./assets/images/menu-5.png" width="110" height="110" loading="lazy" alt="Dawat Sp. Soup">
+                  </div>
+                  <div class="menu-dish-info">
+                    <span class="menu-dish-badge">Chef Signature</span>
+                    <div class="menu-dish-header">
+                      <h3 class="menu-dish-title">Dawat Sp. Soup</h3>
+                      <span class="menu-dish-price">₹130.00</span>
+                    </div>
+                    <p class="menu-dish-desc">Steaming chef special soup loaded with tender chicken, Asian mushrooms, fresh seasonal greens &amp; fried wontons.</p>
+                    <a href="tel:+918320812121" class="menu-dish-action">
+                      <span>Order on Call</span>
+                      <ion-icon name="call-outline"></ion-icon>
+                    </a>
+                  </div>
+                </div>
+              </li>
+
+              <!-- Chicken Manchow Soup -->
+              <li>
+                <div class="menu-dish-card">
+                  <div class="dish-img-box">
+                    <img src="./assets/images/menu-9.png" width="110" height="110" loading="lazy" alt="Chicken Manchow Soup">
+                  </div>
+                  <div class="menu-dish-info">
+                    <span class="menu-dish-badge">Classic Favorite</span>
+                    <div class="menu-dish-header">
+                      <h3 class="menu-dish-title">Chicken Manchow Soup</h3>
+                      <span class="menu-dish-price">₹120.00</span>
+                    </div>
+                    <p class="menu-dish-desc">Spicy garlic soy chicken soup infused with coriander and topped with crunchy golden fried noodles.</p>
+                    <a href="tel:+918320812121" class="menu-dish-action">
+                      <span>Order on Call</span>
+                      <ion-icon name="call-outline"></ion-icon>
+                    </a>
+                  </div>
+                </div>
+              </li>
+
+              <!-- Chicken Hot & Sour Soup -->
+              <li>
+                <div class="menu-dish-card">
+                  <div class="dish-img-box">
+                    <img src="./assets/images/menu-5.png" width="110" height="110" loading="lazy" alt="Chicken Hot &amp; Sour Soup">
+                  </div>
+                  <div class="menu-dish-info">
+                    <span class="menu-dish-badge">Tangy &amp; Spicy</span>
+                    <div class="menu-dish-header">
+                      <h3 class="menu-dish-title">Chicken Hot &amp; Sour Soup</h3>
+                      <span class="menu-dish-price">₹120.00</span>
+                    </div>
+                    <p class="menu-dish-desc">Bold and tangy dark broth simmered with shredded chicken, bamboo shoots, egg drops and chili oil.</p>
+                    <a href="tel:+918320812121" class="menu-dish-action">
+                      <span>Order on Call</span>
+                      <ion-icon name="call-outline"></ion-icon>
+                    </a>
+                  </div>
+                </div>
+              </li>
+
+              <!-- Chicken Lemon Coriander Soup -->
+              <li>
+                <div class="menu-dish-card">
+                  <div class="dish-img-box">
+                    <img src="./assets/images/menu-9.png" width="110" height="110" loading="lazy" alt="Chicken Lemon Coriander Soup">
+                  </div>
+                  <div class="menu-dish-info">
+                    <span class="menu-dish-badge">Refreshing &amp; Light</span>
+                    <div class="menu-dish-header">
+                      <h3 class="menu-dish-title">Chicken Lemon Coriander Soup</h3>
+                      <span class="menu-dish-price">₹120.00</span>
+                    </div>
+                    <p class="menu-dish-desc">Zesty clear lemon broth delicately seasoned with fresh farm coriander leaves and shredded chicken.</p>
+                    <a href="tel:+918320812121" class="menu-dish-action">
+                      <span>Order on Call</span>
+                      <ion-icon name="call-outline"></ion-icon>
+                    </a>
+                  </div>
+                </div>
+              </li>
+
+              <!-- Chicken Sweet Corn Soup -->
+              <li>
+                <div class="menu-dish-card">
+                  <div class="dish-img-box">
+                    <img src="./assets/images/menu-5.png" width="110" height="110" loading="lazy" alt="Chicken Sweet Corn Soup">
+                  </div>
+                  <div class="menu-dish-info">
+                    <span class="menu-dish-badge">Mild &amp; Sweet</span>
+                    <div class="menu-dish-header">
+                      <h3 class="menu-dish-title">Chicken Sweet Corn Soup</h3>
+                      <span class="menu-dish-price">₹120.00</span>
+                    </div>
+                    <p class="menu-dish-desc">Velvety crushed American sweet corn broth gently cooked with shredded chicken and fragrant white pepper.</p>
+                    <a href="tel:+918320812121" class="menu-dish-action">
+                      <span>Order on Call</span>
+                      <ion-icon name="call-outline"></ion-icon>
+                    </a>
+                  </div>
+                </div>
+              </li>
+
+              <!-- Chicken Mongolian Hot Pot Soup -->
+              <li>
+                <div class="menu-dish-card">
+                  <div class="dish-img-box">
+                    <img src="./assets/images/menu-9.png" width="110" height="110" loading="lazy" alt="Chicken Mongolian Hot Pot Soup">
+                  </div>
+                  <div class="menu-dish-info">
+                    <span class="menu-dish-badge">Spicy Hot Pot</span>
+                    <div class="menu-dish-header">
+                      <h3 class="menu-dish-title">Chicken Mongolian Hot Pot Soup</h3>
+                      <span class="menu-dish-price">₹130.00</span>
+                    </div>
+                    <p class="menu-dish-desc">Robust Mongolian style spiced hot pot soup packed with slow-cooked chicken, scallions and fiery red chilies.</p>
+                    <a href="tel:+918320812121" class="menu-dish-action">
+                      <span>Order on Call</span>
+                      <ion-icon name="call-outline"></ion-icon>
+                    </a>
+                  </div>
+                </div>
+              </li>
+
+            </ul>
+          </div>
+
+
+
+
+
+          <!-- ================= CATEGORY 2: STARTER & MAIN COURSE ================= -->
+          <div id="starters" class="menu-category-block" style="margin-block-start: 40px;">
+            <div class="menu-section-header">
+              <h2 class="menu-section-title">
+                <ion-icon name="restaurant-outline" aria-hidden="true"></ion-icon>
+                Starter &amp; Main Course (Chicken)
+              </h2>
+              <span class="menu-section-tag">Chef Specialties • 6 Selections</span>
+            </div>
+
+            <ul class="grid-list">
+
+              <!-- Chicken Crispy -->
+              <li>
+                <div class="menu-dish-card">
+                  <div class="dish-img-box">
+                    <img src="./assets/images/menu-2.png" width="110" height="110" loading="lazy" alt="Chicken Crispy">
+                  </div>
+                  <div class="menu-dish-info">
+                    <span class="menu-dish-badge">Top Bestseller</span>
+                    <div class="menu-dish-header">
+                      <h3 class="menu-dish-title">Chicken Crispy</h3>
+                      <span class="menu-dish-price">₹340.00</span>
+                    </div>
+                    <p class="menu-dish-desc">Crispy golden spiced chicken strips tossed in chef's special glaze, toasted sesame seeds &amp; spring onions.</p>
+                    <a href="tel:+918320812121" class="menu-dish-action">
+                      <span>Order on Call</span>
+                      <ion-icon name="call-outline"></ion-icon>
+                    </a>
+                  </div>
+                </div>
+              </li>
+
+              <!-- Chicken Shanghai -->
+              <li>
+                <div class="menu-dish-card">
+                  <div class="dish-img-box">
+                    <img src="./assets/images/menu-8.png" width="110" height="110" loading="lazy" alt="Chicken Shanghai">
+                  </div>
+                  <div class="menu-dish-info">
+                    <span class="menu-dish-badge">Indo-Chinese</span>
+                    <div class="menu-dish-header">
+                      <h3 class="menu-dish-title">Chicken Shanghai</h3>
+                      <span class="menu-dish-price">₹340.00</span>
+                    </div>
+                    <p class="menu-dish-desc">Juicy chicken chunks wok-tossed in sweet and spicy Shanghai sauce with crunchy bell peppers and ginger.</p>
+                    <a href="tel:+918320812121" class="menu-dish-action">
+                      <span>Order on Call</span>
+                      <ion-icon name="call-outline"></ion-icon>
+                    </a>
+                  </div>
+                </div>
+              </li>
+
+              <!-- Chicken China Town -->
+              <li>
+                <div class="menu-dish-card">
+                  <div class="dish-img-box">
+                    <img src="./assets/images/menu-8.png" width="110" height="110" loading="lazy" alt="Chicken China Town">
+                  </div>
+                  <div class="menu-dish-info">
+                    <span class="menu-dish-badge">Spicy Wok</span>
+                    <div class="menu-dish-header">
+                      <h3 class="menu-dish-title">Chicken China Town</h3>
+                      <span class="menu-dish-price">₹360.00</span>
+                    </div>
+                    <p class="menu-dish-desc">Authentic street-style spicy chicken preparation with burnt garlic, red chilies, scallions and dark soy glaze.</p>
+                    <a href="tel:+918320812121" class="menu-dish-action">
+                      <span>Order on Call</span>
+                      <ion-icon name="call-outline"></ion-icon>
+                    </a>
+                  </div>
+                </div>
+              </li>
+
+              <!-- Chicken Bullet -->
+              <li>
+                <div class="menu-dish-card">
+                  <div class="dish-img-box">
+                    <img src="./assets/images/menu-7.png" width="110" height="110" loading="lazy" alt="Chicken Bullet">
+                  </div>
+                  <div class="menu-dish-info">
+                    <span class="menu-dish-badge">Fiery &amp; Crispy</span>
+                    <div class="menu-dish-header">
+                      <h3 class="menu-dish-title">Chicken Bullet</h3>
+                      <span class="menu-dish-price">₹390.00</span>
+                    </div>
+                    <p class="menu-dish-desc">Crispy fried chicken nuggets tossed with roasted red chili flakes, curry leaves, crushed pepper &amp; garlic cloves.</p>
+                    <a href="tel:+918320812121" class="menu-dish-action">
+                      <span>Order on Call</span>
+                      <ion-icon name="call-outline"></ion-icon>
+                    </a>
+                  </div>
+                </div>
+              </li>
+
+              <!-- Chicken Darjeeling -->
+              <li>
+                <div class="menu-dish-card">
+                  <div class="dish-img-box">
+                    <img src="./assets/images/menu-2.png" width="110" height="110" loading="lazy" alt="Chicken Darjeeling">
+                  </div>
+                  <div class="menu-dish-info">
+                    <span class="menu-dish-badge">Himalayan Spices</span>
+                    <div class="menu-dish-header">
+                      <h3 class="menu-dish-title">Chicken Darjeeling</h3>
+                      <span class="menu-dish-price">₹330.00</span>
+                    </div>
+                    <p class="menu-dish-desc">Tender chicken pieces coated with aromatic hill herbs, black cardamom and ginger sauce.</p>
+                    <a href="tel:+918320812121" class="menu-dish-action">
+                      <span>Order on Call</span>
+                      <ion-icon name="call-outline"></ion-icon>
+                    </a>
+                  </div>
+                </div>
+              </li>
+
+              <!-- Chicken Hong Kong -->
+              <li>
+                <div class="menu-dish-card">
+                  <div class="dish-img-box">
+                    <img src="./assets/images/menu-7.png" width="110" height="110" loading="lazy" alt="Chicken Hong Kong">
+                  </div>
+                  <div class="menu-dish-info">
+                    <span class="menu-dish-badge">Sweet &amp; Tangy</span>
+                    <div class="menu-dish-header">
+                      <h3 class="menu-dish-title">Chicken Hong Kong</h3>
+                      <span class="menu-dish-price">₹330.00</span>
+                    </div>
+                    <p class="menu-dish-desc">Chicken morsels tossed in classic Hong Kong style mild spiced gravy with baby corn, peppers and cashews.</p>
+                    <a href="tel:+918320812121" class="menu-dish-action">
+                      <span>Order on Call</span>
+                      <ion-icon name="call-outline"></ion-icon>
+                    </a>
+                  </div>
+                </div>
+              </li>
+
+            </ul>
+          </div>
+
+
+
+
+
+          <!-- ================= CATEGORY 3: SEAFOOD & STARTERS ================= -->
+          <div id="seafood" class="menu-category-block" style="margin-block-start: 40px;">
+            <div class="menu-section-header">
+              <h2 class="menu-section-title">
+                <ion-icon name="water-outline" aria-hidden="true"></ion-icon>
+                Seafood &amp; Fresh Catch Specials
+              </h2>
+              <span class="menu-section-tag">Fresh Coastal Flavors • 8 Selections</span>
+            </div>
+
+            <ul class="grid-list">
+
+              <!-- Dawat Special Starter -->
+              <li>
+                <div class="menu-dish-card">
+                  <div class="dish-img-box">
+                    <img src="./assets/images/menu-1.png" width="110" height="110" loading="lazy" alt="Dawat Special Starter">
+                  </div>
+                  <div class="menu-dish-info">
+                    <span class="menu-dish-badge">Signature Masterpiece</span>
+                    <div class="menu-dish-header">
+                      <h3 class="menu-dish-title">Dawat Special Starter</h3>
+                      <span class="menu-dish-price">₹430.00</span>
+                    </div>
+                    <p class="menu-dish-desc">Succulent tandoori chicken &amp; mutton skewers infused with charcoal smoke, royal Mughlai herbs and butter glaze.</p>
+                    <a href="tel:+918320812121" class="menu-dish-action">
+                      <span>Order on Call</span>
+                      <ion-icon name="call-outline"></ion-icon>
+                    </a>
+                  </div>
+                </div>
+              </li>
+
+              <!-- Fish / Prawn's Butter Garlic -->
+              <li>
+                <div class="menu-dish-card">
+                  <div class="dish-img-box">
+                    <img src="./assets/images/menu-4.png" width="110" height="110" loading="lazy" alt="Fish / Prawn's Butter Garlic">
+                  </div>
+                  <div class="menu-dish-info">
+                    <span class="menu-dish-badge">Rich &amp; Velvety</span>
+                    <div class="menu-dish-header">
+                      <h3 class="menu-dish-title">Fish / Prawn's Butter Garlic</h3>
+                      <span class="menu-dish-price">₹430.00</span>
+                    </div>
+                    <p class="menu-dish-desc">Fresh coastal prawns and fish simmered in a velvety golden butter sauce infused with roasted minced garlic.</p>
+                    <a href="tel:+918320812121" class="menu-dish-action">
+                      <span>Order on Call</span>
+                      <ion-icon name="call-outline"></ion-icon>
+                    </a>
+                  </div>
+                </div>
+              </li>
+
+              <!-- Fish / Prawn's Chilly Flexs -->
+              <li>
+                <div class="menu-dish-card">
+                  <div class="dish-img-box">
+                    <img src="./assets/images/menu-10.png" width="110" height="110" loading="lazy" alt="Fish / Prawn's Chilly Flexs">
+                  </div>
+                  <div class="menu-dish-info">
+                    <span class="menu-dish-badge">Spicy Favorite</span>
+                    <div class="menu-dish-header">
+                      <h3 class="menu-dish-title">Fish / Prawn's Chilly Flexs</h3>
+                      <span class="menu-dish-price">₹430.00</span>
+                    </div>
+                    <p class="menu-dish-desc">Tender fish and jumbo prawns pan-seared with crushed spicy chili flakes, garlic flakes and scallions.</p>
+                    <a href="tel:+918320812121" class="menu-dish-action">
+                      <span>Order on Call</span>
+                      <ion-icon name="call-outline"></ion-icon>
+                    </a>
+                  </div>
+                </div>
+              </li>
+
+              <!-- Crunchy Fish -->
+              <li>
+                <div class="menu-dish-card">
+                  <div class="dish-img-box">
+                    <img src="./assets/images/menu-6.png" width="110" height="110" loading="lazy" alt="Crunchy Fish">
+                  </div>
+                  <div class="menu-dish-info">
+                    <span class="menu-dish-badge">Crispy Delight</span>
+                    <div class="menu-dish-header">
+                      <h3 class="menu-dish-title">Crunchy Fish</h3>
+                      <span class="menu-dish-price">₹430.00</span>
+                    </div>
+                    <p class="menu-dish-desc">Golden crisp seasoned fish fillets fried to crunchy perfection, served with garlic tartar dip &amp; fresh lemon.</p>
+                    <a href="tel:+918320812121" class="menu-dish-action">
+                      <span>Order on Call</span>
+                      <ion-icon name="call-outline"></ion-icon>
+                    </a>
+                  </div>
+                </div>
+              </li>
+
+              <!-- Fish / Prawn's Bullet -->
+              <li>
+                <div class="menu-dish-card">
+                  <div class="dish-img-box">
+                    <img src="./assets/images/menu-10.png" width="110" height="110" loading="lazy" alt="Fish / Prawn's Bullet">
+                  </div>
+                  <div class="menu-dish-info">
+                    <span class="menu-dish-badge">Fiery Catch</span>
+                    <div class="menu-dish-header">
+                      <h3 class="menu-dish-title">Fish / Prawn's Bullet</h3>
+                      <span class="menu-dish-price">₹460.00</span>
+                    </div>
+                    <p class="menu-dish-desc">Bite-sized juicy seafood morsels fried and coated in intense spicy bullet masala with crispy curry leaves.</p>
+                    <a href="tel:+918320812121" class="menu-dish-action">
+                      <span>Order on Call</span>
+                      <ion-icon name="call-outline"></ion-icon>
+                    </a>
+                  </div>
+                </div>
+              </li>
+
+              <!-- Fish / Prawn's Ginger -->
+              <li>
+                <div class="menu-dish-card">
+                  <div class="dish-img-box">
+                    <img src="./assets/images/menu-4.png" width="110" height="110" loading="lazy" alt="Fish / Prawn's Ginger">
+                  </div>
+                  <div class="menu-dish-info">
+                    <span class="menu-dish-badge">Aromatic Herbs</span>
+                    <div class="menu-dish-header">
+                      <h3 class="menu-dish-title">Fish / Prawn's Ginger</h3>
+                      <span class="menu-dish-price">₹430.00</span>
+                    </div>
+                    <p class="menu-dish-desc">Fresh prawns and fish sautéed with julienned fresh ginger, spring onions, light soy and coriander.</p>
+                    <a href="tel:+918320812121" class="menu-dish-action">
+                      <span>Order on Call</span>
+                      <ion-icon name="call-outline"></ion-icon>
+                    </a>
+                  </div>
+                </div>
+              </li>
+
+              <!-- Fish / Prawn's Mongolian -->
+              <li>
+                <div class="menu-dish-card">
+                  <div class="dish-img-box">
+                    <img src="./assets/images/menu-10.png" width="110" height="110" loading="lazy" alt="Fish / Prawn's Mongolian">
+                  </div>
+                  <div class="menu-dish-info">
+                    <span class="menu-dish-badge">Mongolian Spices</span>
+                    <div class="menu-dish-header">
+                      <h3 class="menu-dish-title">Fish / Prawn's Mongolian</h3>
+                      <span class="menu-dish-price">₹430.00</span>
+                    </div>
+                    <p class="menu-dish-desc">Sweet and spicy Mongolian glazed prawns and fish tossed with caramelized onions and peppers.</p>
+                    <a href="tel:+918320812121" class="menu-dish-action">
+                      <span>Order on Call</span>
+                      <ion-icon name="call-outline"></ion-icon>
+                    </a>
+                  </div>
+                </div>
+              </li>
+
+              <!-- Prawn's Salt & Pear -->
+              <li>
+                <div class="menu-dish-card">
+                  <div class="dish-img-box">
+                    <img src="./assets/images/menu-6.png" width="110" height="110" loading="lazy" alt="Prawn's Salt &amp; Pear">
+                  </div>
+                  <div class="menu-dish-info">
+                    <span class="menu-dish-badge">Crisp &amp; Seasoned</span>
+                    <div class="menu-dish-header">
+                      <h3 class="menu-dish-title">Prawn's Salt &amp; Pear</h3>
+                      <span class="menu-dish-price">₹430.00</span>
+                    </div>
+                    <p class="menu-dish-desc">Crisp battered prawns tossed with sea salt, cracked peppercorns, scallions and green chili slices.</p>
+                    <a href="tel:+918320812121" class="menu-dish-action">
+                      <span>Order on Call</span>
+                      <ion-icon name="call-outline"></ion-icon>
+                    </a>
+                  </div>
+                </div>
+              </li>
+
+            </ul>
+          </div>
+
+
+
+
+
+          <!-- ================= CATEGORY 4: VEG DAWAT SPECIAL & SIZZLERS ================= -->
+          <div id="veg" class="menu-category-block" style="margin-block-start: 40px;">
+            <div class="menu-section-header">
+              <h2 class="menu-section-title">
+                <ion-icon name="leaf-outline" aria-hidden="true"></ion-icon>
+                Veg. Dawat Special &amp; Sizzlers
+              </h2>
+              <span class="menu-section-tag">Pure Veg Delicacies • Sizzling Hot</span>
+            </div>
+
+            <ul class="grid-list">
+
+              <!-- Veg. Barbeque Platter -->
+              <li>
+                <div class="menu-dish-card">
+                  <div class="dish-img-box">
+                    <img src="./assets/images/menu-3.png" width="110" height="110" loading="lazy" alt="Veg. Barbeque Platter">
+                  </div>
+                  <div class="menu-dish-info">
+                    <span class="menu-dish-badge">Grand Platter</span>
+                    <div class="menu-dish-header">
+                      <h3 class="menu-dish-title">Veg. Barbeque Platter</h3>
+                      <span class="menu-dish-price">₹980.00</span>
+                    </div>
+                    <p class="menu-dish-desc">Grand platter with paneer tikka, grilled mushrooms, capsicum, roasted sweet corn, pineapple &amp; mint dip.</p>
+                    <a href="tel:+918320812121" class="menu-dish-action">
+                      <span>Order on Call</span>
+                      <ion-icon name="call-outline"></ion-icon>
+                    </a>
+                  </div>
+                </div>
+              </li>
+
+              <!-- Veg. Chinese Sizzler -->
+              <li>
+                <div class="menu-dish-card">
+                  <div class="dish-img-box">
+                    <img src="./assets/images/menu-11.png" width="110" height="110" loading="lazy" alt="Veg. Chinese Sizzler">
+                  </div>
+                  <div class="menu-dish-info">
+                    <span class="menu-dish-badge">Sizzling Sensation</span>
+                    <div class="menu-dish-header">
+                      <h3 class="menu-dish-title">Veg. Chinese Sizzler</h3>
+                      <span class="menu-dish-price">₹799.00</span>
+                    </div>
+                    <p class="menu-dish-desc">Sizzling cast-iron skillet loaded with noodles, fried rice, crisp baby corn, grilled paneer &amp; garlic sauce.</p>
+                    <a href="tel:+918320812121" class="menu-dish-action">
+                      <span>Order on Call</span>
+                      <ion-icon name="call-outline"></ion-icon>
+                    </a>
+                  </div>
+                </div>
+              </li>
+
+              <!-- Veg. Paneer Barbeque Sizzler -->
+              <li>
+                <div class="menu-dish-card">
+                  <div class="dish-img-box">
+                    <img src="./assets/images/menu-12.png" width="110" height="110" loading="lazy" alt="Veg. Paneer Barbeque Sizzler">
+                  </div>
+                  <div class="menu-dish-info">
+                    <span class="menu-dish-badge">Smoky BBQ</span>
+                    <div class="menu-dish-header">
+                      <h3 class="menu-dish-title">Veg. Paneer Barbeque Sizzler</h3>
+                      <span class="menu-dish-price">₹870.00</span>
+                    </div>
+                    <p class="menu-dish-desc">Charcoal marinated paneer skewers served over a bed of smoky peppers, butter glaze and barbecue gravy.</p>
+                    <a href="tel:+918320812121" class="menu-dish-action">
+                      <span>Order on Call</span>
+                      <ion-icon name="call-outline"></ion-icon>
+                    </a>
+                  </div>
+                </div>
+              </li>
+
+              <!-- Paneer Stick Sizzler -->
+              <li>
+                <div class="menu-dish-card">
+                  <div class="dish-img-box">
+                    <img src="./assets/images/menu-12.png" width="110" height="110" loading="lazy" alt="Paneer Stick Sizzler">
+                  </div>
+                  <div class="menu-dish-info">
+                    <span class="menu-dish-badge">Chef Recommendation</span>
+                    <div class="menu-dish-header">
+                      <h3 class="menu-dish-title">Paneer Stick Sizzler</h3>
+                      <span class="menu-dish-price">₹870.00</span>
+                    </div>
+                    <p class="menu-dish-desc">Skewered spiced cottage cheese grilled to tender perfection, served with herb butter, onions and lemon.</p>
+                    <a href="tel:+918320812121" class="menu-dish-action">
+                      <span>Order on Call</span>
+                      <ion-icon name="call-outline"></ion-icon>
+                    </a>
+                  </div>
+                </div>
+              </li>
+
+            </ul>
+          </div>
+
+
+
+
+
+          <!-- ================= CALL TO ACTION BOOKING BOX ================= -->
+          <div class="order-cta-box text-center">
+            <p class="label-2 section-subtitle">Ready To Experience Authentic Taste?</p>
+            <h2 class="display-1 hero-title" style="margin-block: 15px 20px; font-size: 3.6rem;">Book Your Table or Order Now</h2>
+            <p class="body-2" style="max-width: 600px; margin-inline: auto; margin-block-end: 30px; color: var(--quick-silver);">
+              Enjoy rooftop dining, spacious outdoor garden seating, or quick highway delivery across Kheda, Gujarat.
+            </p>
+            <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+              <a href="tel:+918320812121" class="btn btn-secondary">
+                <span class="text text-1">Book Table (+91 83208 12121)</span>
+                <span class="text text-2" aria-hidden="true">Call Now to Book</span>
+              </a>
+              <a href="index.html" class="btn btn-primary">
+                <span class="text text-1">Back To Home</span>
+                <span class="text text-2" aria-hidden="true">Home Page</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+
+
+
+
+  <!-- 
+    - #FOOTER
+  -->
+
+  <footer class="footer section has-bg-image text-center"
+    style="background-image: url('./assets/images/footer-bg.jpg')" id="contact">
+    <div class="container">
+
+      <div class="footer-top grid-list">
+
+        <div class="footer-brand has-before has-after">
+
+          <a href="index.html" class="logo">
+            <img src="./assets/images/logo.svg" width="160" height="50" loading="lazy" alt="Dawat Restaurant Home">
+          </a>
+
+          <address class="body-4">
+            NH-8, Kajipura, Opposite Sumar Logistics, Nearby Coca-Cola, Kheda, Gujarat — 387120
+          </address>
+
+          <a href="tel:+918320812121" class="body-4 contact-link">Primary: +91 83208 12121</a>
+          <a href="tel:+917984905342" class="body-4 contact-link">Booking: +91 79849 05342 / +91 95370 05566</a>
+
+          <p class="body-4">
+            Daily : 1:00 PM – 1:00 AM (Open Daily)
+          </p>
+
+          <div class="wrapper">
+            <div class="separator"></div>
+            <div class="separator"></div>
+            <div class="separator"></div>
+          </div>
+
+          <p class="title-1">Taste That Touches Your Heart</p>
+
+          <p class="label-1">
+            Subscribe us &amp; Get <span class="span">Special Offers</span>
+          </p>
+
+          <form action="" class="input-wrapper">
+            <div class="icon-wrapper">
+              <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
+
+              <input type="email" name="email_address" placeholder="Your email" autocomplete="off" class="input-field">
+            </div>
+
+            <button type="submit" class="btn btn-secondary">
+              <span class="text text-1">Subscribe</span>
+
+              <span class="text text-2" aria-hidden="true">Subscribe</span>
+            </button>
+          </form>
+
+        </div>
+
+        <ul class="footer-list">
+
+          <li>
+            <a href="index.html" class="label-2 footer-link hover-underline">Home</a>
+          </li>
+
+          <li>
+            <a href="menu.html" class="label-2 footer-link hover-underline">Menus</a>
+          </li>
+
+          <li>
+            <a href="index.html#about" class="label-2 footer-link hover-underline">About Us</a>
+          </li>
+
+          <li>
+            <a href="index.html#reservation" class="label-2 footer-link hover-underline">Book Table</a>
+          </li>
+
+          <li>
+            <a href="tel:+918320812121" class="label-2 footer-link hover-underline">Call Us</a>
+          </li>
+
+        </ul>
+
+        <ul class="footer-list">
+
+          <li>
+            <a href="https://www.facebook.com/p/Dawat-Restaurant-Kheda-100063700326190/" target="_blank" class="label-2 footer-link hover-underline">Facebook</a>
+          </li>
+
+          <li>
+            <a href="https://www.instagram.com/reel/C6WNh6ptUbX/" target="_blank" class="label-2 footer-link hover-underline">Instagram</a>
+          </li>
+
+          <li>
+            <a href="https://maps.google.com/?q=Dawat+Restaurant+Kajipura+Kheda+Gujarat" target="_blank" class="label-2 footer-link hover-underline">Google Maps</a>
+          </li>
+
+        </ul>
+
+      </div>
+
+      <div class="footer-bottom">
+
+        <p class="copyright">
+          &copy; 2026 Dawat Restaurant, Kheda, Gujarat. All Rights Reserved | Taste That Touches Your Heart
+        </p>
+
+      </div>
+
+    </div>
+  </footer>
+
+
+
+
+
+  <!-- 
+    - #BACK TO TOP
+  -->
+
+  <a href="#top" class="back-top-btn active" aria-label="back to top" data-back-top-btn>
+    <ion-icon name="chevron-up" aria-hidden="true"></ion-icon>
+  </a>
+
+
+
+
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="./assets/js/script.js"></script>
+
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
