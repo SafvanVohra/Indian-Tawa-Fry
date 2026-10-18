@@ -600,7 +600,8 @@ body.nav-active { overflow: hidden; }
   background-size: 500%;
   font-size: calc(2rem + 3vw);
   font-weight: var(--weight-bold);
-  line-height: 1em;
+  line-height: 1.15em;
+  text-align: center;
   text-transform: uppercase;
   letter-spacing: 16px;
   padding-inline-start: 16px;
